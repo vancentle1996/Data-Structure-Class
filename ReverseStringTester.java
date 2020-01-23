@@ -1,42 +1,45 @@
-/******************************************
-* Author: Hai Le
-* Created on: 1/17/2020
-* Purpose: Testing two strings if they're the reverse of one another
-*******************************************/
-
+/**
+ * Completed by: Hai Le 
+ */
 import java.util.Scanner;
 
 public class ReverseStringTester {
-   public static void main(String[] args)
-   {
-      //User's inputs
-      Scanner input = new Scanner(System.in);
-      System.out.print("Enter the first word: ");
-      String s = input.nextLine();
-      System.out.print("Enter the second word: ");
-      String s2 = input.nextLine();
-      
-      //Checking if the first word is the reverse of the second one
-      if(isReverse(s,s2)) 
-         System.out.println(s + " is the reverse of " + s2);
-      else
-         System.out.println(s + " is not the reverse of " + s2);
-   }
-   
-   //Returning true if the first word is the reverse of the second one
-   public static boolean isReverse(String s, String s2)
-   { 
-      return s2.equals(reverse(s));
-   }
-   
-   //Reading each character of the word
-   //and store them in result variable
-   public static String reverse(String s) {
-      String result = "";
-      for (int i = 0; i < s.length(); i++) {
-         result = s.charAt(i) + result;
+
+	public static void main(String[] args) {
+		 Scanner input = new Scanner(System.in);
+		
+		  System.out.println("Enter the first word:");
+        String inputString1 = input.nextLine();
+     
+        System.out.println("Enter the second word:");
+        String inputString2 = input.nextLine();
+     
+        //test if reversed
+        boolean output = isReverse(inputString1, inputString2);
+     
+        //report answer
+        if (output) {
+           System.out.println(inputString1 + " is the reverse of " + inputString2);
+        } 
+        else {
+           System.out.println(inputString1 + " is not the reverse of " + inputString2);
+        }
+        input.close();
+	}
+	
+	   private static boolean isReverse(String inputString1, String inputString2) {
+            //return true if the reverse of the first string/word is the same as the second string/word
+            return inputString2.equals(reverse(inputString1)); 	   
       }
-      return result;
-   }
-   
+
+      //Reading each character of the first string/word
+      //and store them in result variable
+      public static String reverse(String inputString1) 
+         {
+            String result = "";
+            for (int i = 0; i < inputString1.length(); i++) {
+            result = inputString1.charAt(i) + result;
+         }
+         return result;
+      }
 }
